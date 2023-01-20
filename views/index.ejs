@@ -25,11 +25,11 @@
     <h2>Add A Character:</h2>
 
 
-    <form action="/addCharacter" method="POST">
+    <form onsubmit='applyStats() 'class="characterForm" action="/addCharacter" method="POST">
         <input type="text" placeholder="First Name" name="charFName">
         <input type="text" placeholder="Last Name" name="charLName">
         <select name="class" id="classes">
-            <option value="Warrior">Warrior</option>
+            <option value='Warrior'>Warrior</option>
             <option value="Archer">Archer</option>
             <option value="Support">Support</option>
             <option value="Mage">Mage</option>
@@ -39,6 +39,16 @@
         <input class='submit' type="submit">
     </form>
     <script src='js/main.js'></script>
-    <script src='js/stats.js'></script>
+    <script src="js/stats.js"></script>
+    <script>
+        document.querySelector('.submit').addEventListener('click', () => {
+            const classValue = document.querySelector('#classes').value
+    //         for(i = 0; i < stats.length; i++) {
+    //         if(classValue == stats[i]){
+    //            alert(`Matches at class ${stats[i]}`)
+    //       }
+    //  }
+        })
+    </script>
 </body>
 </html>

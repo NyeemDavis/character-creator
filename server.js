@@ -20,6 +20,7 @@ MongoClient.connect(dbConnectionString, { useUnifiedTopology: true })
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.static('views'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -44,7 +45,6 @@ app.get('/', (req, res) => {
 
 
 app.post('/addCharacter', (req, res) => {
-    const charClass = req.body.class
     db.collection('characters').insertOne({charFName: req.body.charFName, charLName: req.body.charLName,
         class: req.body.class}) 
         .then(result => {
