@@ -50,12 +50,3 @@ const stats = {
     },
 }
 
-
-   
-const form = document.querySelector('.characterForm')
-form.querySelector('submit', getStats)
-
-async function getStats () {
-    console.log('working')
-}
-

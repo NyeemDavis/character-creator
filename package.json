@@ -1,11 +1,12 @@
 {
   "name": "character-creator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fullstack application where users can add a name and class to a character",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +19,13 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NyeemDavis/character-creator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NyeemDavis/character-creator/issues"
+  },
+  "homepage": "https://github.com/NyeemDavis/character-creator#readme"
 }
