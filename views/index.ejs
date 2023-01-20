@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>All Characters</h1>
+    <ul class="rappers">
+    <% for(let i=0; i < info.length; i++) {%>
+            <li class="character">
+                        <span><%= info[i].charFName %></span>
+                        <span><%= info[i].charLName %></span>
+                        <span>Class: <%= info[i].class %></span>
+                        <button class="getStatsButton">Get Stats</button>
+                        <button class="deleteButton">Delete Character</button>
+            </li>
+    <% } %>
+    </ul>
+
+    <h2>Add A Character:</h2>
+
+
+    <form action="/addCharacter" method="POST">
+        <input type="text" placeholder="First Name" name="charFName">
+        <input type="text" placeholder="Last Name" name="charLName">
+        <select name="class" id="classes">
+            <option value="Warrior">Warrior</option>
+            <option value="Archer">Archer</option>
+            <option value="Support">Support</option>
+            <option value="Mage">Mage</option>
+            <option value="Assassin">Assassin</option>
+            <option value="Healer">Healer</option>
+        </select>
+        <input class='submit' type="submit">
+    </form>
+    <script src='js/main.js'></script>
+    <script src='js/stats.js'></script>
+</body>
+</html>
