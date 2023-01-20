@@ -7,6 +7,7 @@ deleteButton.addEventListener('click', deleteCharacater)
 async function deleteCharacater(){
     const fName = this.parentNode.childNodes[1].innerText
     const lName = this.parentNode.childNodes[3].innerText
+    console.log(fName, lName)
     try{
         const response = await fetch('deleteCharacater', {
             method: 'delete',
@@ -26,19 +27,5 @@ async function deleteCharacater(){
 }
 
 // async function addStats() {
-//   const cheese = 'eggman'
-//   try {
-//     const response = await fetch('getStats', {
-//       method: 'post',
-//       headers: {'Content-Type': 'application/json'},
-//       body: JSON.stringify({
-//         stats
-//       })
-//     })
-//     const data = await response.json()
-//     console.log(data)
-//     location.reload()
-//   } catch (error) {
-//     console.log(err)
-//   }
+  
 // }
