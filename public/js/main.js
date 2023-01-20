@@ -2,7 +2,7 @@ const deleteButton = document.querySelector('.deleteButton')
 const statsButton = document.querySelector('.getStatsButton')
 
 deleteButton.addEventListener('click', deleteCharacater)
-statsButton.addEventListener('click', addStats)
+// statsButton.addEventListener('click', addStats)
 
 async function deleteCharacater(){
     const fName = this.parentNode.childNodes[1].innerText
@@ -25,20 +25,20 @@ async function deleteCharacater(){
     }
 }
 
-async function addStats() {
-  const cheese = 'eggman'
-  try {
-    const response = await fetch('getStats', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        stats
-      })
-    })
-    const data = await response.json()
-    console.log(data)
-    location.reload()
-  } catch (error) {
-    console.log(err)
-  }
-}
+// async function addStats() {
+//   const cheese = 'eggman'
+//   try {
+//     const response = await fetch('getStats', {
+//       method: 'post',
+//       headers: {'Content-Type': 'application/json'},
+//       body: JSON.stringify({
+//         stats
+//       })
+//     })
+//     const data = await response.json()
+//     console.log(data)
+//     location.reload()
+//   } catch (error) {
+//     console.log(err)
+//   }
+// }
