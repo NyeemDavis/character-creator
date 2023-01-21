@@ -2,6 +2,7 @@ const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('mongodb');
 const app = express();
+const addStats = require('./public/js/addStats')
 const PORT = 8000;
 require('dotenv').config()
 
@@ -45,12 +46,7 @@ app.post('/addCharacter', (req, res) => {
         db.collection('characters').insertOne({charFName: req.body.charFName, charLName: req.body.charLName,
             class: req.body.class}) 
             .then(result => {
-                let charClass = req.body.class
-                db.collection('characters').updateOne({charFName: req.body.charFName, charLName: req.body.charLName,
-                    class: req.body.class}, 
-                    {$set:
-                         {if(){}}
-                    })
+                checkClassAndMatch(String(req.body.class), stats)
                 console.log('Character Added')
                 res.redirect('/') // Redirect user to main page
             })
@@ -84,23 +80,19 @@ app.listen(process.env.PORT || PORT, () => {
 //    {Healer: {'health': 200,'defense': 100,'damage': 60,'magic': 100}}]
 
 const stats = {
-    Warrior: {
-        health: 200
-    },
-    Archer: {
-        health: 180
-    },
-    Support: {
-        health: 170
-    },
-    Mage: {
-        health: 150
-    },
-    Assassin: {
-        health: 195
-    },
-    Healer: {
-        health: 140
-    }
+    'Warrior': 'Warrior',
+    'Archer': 2,
+    'Support': 3,
+    'Mage': 4,
+    'Assassin': 5, 
+    'Healer': 6
 }
 
+function checkClassAndMatch(charClass, obj) {
+    for(key in obj) {
+        if(charClass == key) {
+            console.log(`matches with ${key}`)
+            return key
+        }
+    }
+}
