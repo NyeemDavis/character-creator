@@ -32,15 +32,9 @@ app.get('/', (req, res) => {
     .catch(err => console.error(err))
 })
 
-// app.post('/getStats', (req, res) => {
-//     statsdbName.collection('stats').insertOne(req.body.stats)
-//     .then(result => {
-//         console.log('Stats Added')
-//         res.json('Stats added')
-//     })
-//     .catch(err => console.error(err))
-// })
-
+app.get('/addCharacter', (req, res) => { // Server would try to do a get request on the /addCharacter route
+    res.redirect('/')
+})
 
 app.post('/addCharacter', (req, res) => {
         db.collection('characters').insertOne({charFName: req.body.charFName, charLName: req.body.charLName,
@@ -49,11 +43,10 @@ app.post('/addCharacter', (req, res) => {
                 checkClassAndMatch(String(req.body.class), stats)
                 console.log('Character Added')
                 res.redirect('/') // Redirect user to main page
+                'burger'
             })
             .catch(err => console.error(err))
 })
-
-
 
 app.delete('/deleteCharacater', (req, res) => {
     db.collection('characters').deleteOne({charFName: req.body.charFNameS})
@@ -68,16 +61,6 @@ app.delete('/deleteCharacater', (req, res) => {
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Connect to port ${PORT}`)
 })
-
-
-
-// const stats = 
-//    [{Warrior: {health: 200, defense: 175, damage: 150, magic: 20}},
-//     {Archer : {health: 180,'defense': 120,'damage': 125,'magic': 30}},
-//    {Support: {'health': 200,'defense': 175,'damage': 150,'magic': 60}},
-//    {Mage: {'health': 200,'defense': 140,'damage': 75,'magic': 150}},
-//    {Assassin: {'health': 200,'defense': 135,'damage': 165,'magic': 55 }},
-//    {Healer: {'health': 200,'defense': 100,'damage': 60,'magic': 100}}]
 
 const stats = {
     'Warrior': 'Warrior',
