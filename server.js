@@ -2,7 +2,8 @@ const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('mongodb');
 const app = express();
-const addStats = require('.addStats')
+const addStats = require('./addStats')
+const playerStats = require('./stats)
 const PORT = 8000;
 require('dotenv').config()
 
