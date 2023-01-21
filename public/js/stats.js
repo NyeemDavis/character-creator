@@ -1,13 +1,8 @@
-// const form = document.querySelector('.deleteButton')
-// form.addEventListener('submit', applyStats)
-
-async function applyStats() {
-     const classValue = document.querySelector('.classes').value
-     for(i = 0; i < stats.length; i++) {
-          if(classValue == stats.stats[i]){
-               alert(`Matches at class ${stats[i]}`)
-          }
-     }
-}
-
-
+module.exports = {stats: const stats = {
+    'Warrior': 'Warrior',
+    'Archer': 2,
+    'Support': 3,
+    'Mage': 4,
+    'Assassin': 5, 
+    'Healer': 6
+}}
