@@ -1,0 +1,3 @@
+function addStats(charClass, obj) {
+
+}
