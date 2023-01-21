@@ -12,10 +12,9 @@
     <ul class="characters">
     <% for(let i=0; i < info.length; i++) {%>
             <li class="character">
-                        <span><%= info[i].charFName %></span>
+                        <span>Name: <%= info[i].charFName %></span>
                         <span><%= info[i].charLName %>, </span>
                         <span>Class: <%= info[i].class %></span>
-                        <button class="getStatsButton">Get Stats</button>
                         <button class="deleteButton">Delete Character</button>
                         <span></span>
             </li>
@@ -25,7 +24,7 @@
     <h2>Add A Character:</h2>
 
 
-    <form onsubmit='applyStats() 'class="characterForm" action="/addCharacter" method="POST">
+    <form class="characterForm" action="/addCharacter" method="POST">
         <input type="text" placeholder="First Name" name="charFName">
         <input type="text" placeholder="Last Name" name="charLName">
         <select name="class" id="classes">
@@ -40,15 +39,5 @@
     </form>
     <script src='js/main.js'></script>
     <script src="js/stats.js"></script>
-    <script>
-        document.querySelector('.submit').addEventListener('click', () => {
-            const classValue = document.querySelector('#classes').value
-    //         for(i = 0; i < stats.length; i++) {
-    //         if(classValue == stats[i]){
-    //            alert(`Matches at class ${stats[i]}`)
-    //       }
-    //  }
-        })
-    </script>
 </body>
 </html>
