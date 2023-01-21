@@ -12,7 +12,7 @@
     <ul class="characters">
     <% for(let i=0; i < info.length; i++) {%>
             <li class="character">
-                        <span>Name: <%= info[i].charFName %></span>
+                        <span><%= info[i].charFName %></span>
                         <span><%= info[i].charLName %>, </span>
                         <span>Class: <%= info[i].class %></span>
                         <button class="deleteButton">Delete Character</button>
