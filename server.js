@@ -41,7 +41,7 @@ app.post('/addCharacter', (req, res) => {
         db.collection('characters').insertOne({charFName: req.body.charFName, charLName: req.body.charLName,
             class: req.body.class}) 
             .then(result => {
-                checkClassAndMatch(String(req.body.class), stats)
+                applyStats.checkClassAndMatch(String(req.body.class), stats)
                 console.log('Character Added')
                 res.redirect('/') // Redirect user to main page
                 'burger'
