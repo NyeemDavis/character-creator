@@ -42,14 +42,22 @@ app.get('/', (req, res) => {
 
 
 app.post('/addCharacter', (req, res) => {
-    db.collection('characters').insertOne({charFName: req.body.charFName, charLName: req.body.charLName,
-        class: req.body.class}) 
-        .then(result => {
-            console.log('Character Added')
-            res.redirect('/') // Redirect user to main page
-        })
-        .catch(err => console.error(err))
+        db.collection('characters').insertOne({charFName: req.body.charFName, charLName: req.body.charLName,
+            class: req.body.class}) 
+            .then(result => {
+                let charClass = req.body.class
+                db.collection('characters').updateOne({charFName: req.body.charFName, charLName: req.body.charLName,
+                    class: req.body.class}, 
+                    {$set:
+                         {if(){}}
+                    })
+                console.log('Character Added')
+                res.redirect('/') // Redirect user to main page
+            })
+            .catch(err => console.error(err))
 })
+
+
 
 app.delete('/deleteCharacater', (req, res) => {
     db.collection('characters').deleteOne({charFName: req.body.charFNameS})
