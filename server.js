@@ -61,13 +61,3 @@ app.delete('/deleteCharacater', (req, res) => {
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Connect to port ${PORT}`)
 })
-
-const stats = {
-    'Warrior': 'Warrior',
-    'Archer': 2,
-    'Support': 3,
-    'Mage': 4,
-    'Assassin': 5, 
-    'Healer': 6
-}
-
