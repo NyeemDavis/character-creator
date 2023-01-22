@@ -20,23 +20,27 @@
             </li>
     <% } %>
     </ul>
-
     <h2>Add A Character:</h2>
 
-
-    <form class="characterForm" action="/addCharacter" method="POST">
-        <input type="text" placeholder="First Name" name="charFName">
-        <input type="text" placeholder="Last Name" name="charLName">
-        <select name="class" id="classes">
-            <option value='Warrior'>Warrior</option>
-            <option value="Archer">Archer</option>
-            <option value="Balanced">Balanced</option>
-            <option value="Mage">Mage</option>
-            <option value="Assassin">Assassin</option>
-            <option value="Healer">Healer</option>
-        </select>
-        <input class='submit' type="submit">
-    </form>
+ <div class="addCharacter-div">
+        <div class="form-div">
+            <form class="characterForm" action="/addCharacter" method="POST">
+                <label for="charFName">First Name</label>
+                <label for="charLName">Last Name</label>
+                <input type="text" placeholder="First Name" name="charFName">
+                <input type="text" placeholder="Last Name" name="charLName">
+                <select name="class" id="classes">
+                    <option value='Warrior'>Warrior</option>
+                    <option value="Archer">Archer</option>
+                    <option value="Balanced">Balanced</option>
+                    <option value="Mage">Mage</option>
+                    <option value="Assassin">Assassin</option>
+                    <option value="Healer">Healer</option>
+                </select>
+                <input class='submit' type="submit">
+            </form>
+        </div>
+ </div>
     <script src='js/main.js'></script>
     <script src="js/stats.js"></script>
 </body>

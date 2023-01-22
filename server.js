@@ -14,7 +14,7 @@ let db,
 
 MongoClient.connect(dbConnectionString, { useUnifiedTopology: true })
     .then(client => {
-        console.log('Connected to databse')
+        console.log('Connected to Database')
         db = client.db(dbName)
     })
 
@@ -48,7 +48,7 @@ app.post('/addCharacter', (req, res) => {
                     class: req.body.class}, 
                     {
                         $set: {
-                            'Stats': checkClass.checkClassAndMatch(req.body.class, stats)
+                            'stats': checkClass.checkClassAndMatch(req.body.class, stats)
                         }
                     }
                     )
@@ -70,7 +70,7 @@ app.delete('/deleteCharacater', (req, res) => {
 })
 
 app.listen(process.env.PORT || PORT, () => {
-    console.log(`Connect to port ${PORT}`)
+    console.log(`Connected to port ${PORT}`)
 })
 
 
