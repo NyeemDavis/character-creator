@@ -2,9 +2,10 @@ const express = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require('mongodb');
 const app = express();
-const addStats = require('./addStats')
-const playerStats = require('./stats)
+const checkClass = require('./public/js/checkClass')
+const classStats = require('./public/js/stats')
 const PORT = 8000;
+
 require('dotenv').config()
 
 let db,
@@ -37,17 +38,26 @@ app.get('/addCharacter', (req, res) => { // Server would try to do a get request
     res.redirect('/')
 })
 
+
 app.post('/addCharacter', (req, res) => {
         db.collection('characters').insertOne({charFName: req.body.charFName, charLName: req.body.charLName,
             class: req.body.class}) 
             .then(result => {
-                applyStats.checkClassAndMatch(String(req.body.class), stats)
+
+                db.collection('characters').updateOne({charFName: req.body.charFName, charLName: req.body.charLName,
+                    class: req.body.class}, 
+                    {
+                        $set: {
+                            'Stats': checkClass.checkClassAndMatch(req.body.class, stats)
+                        }
+                    }
+                    )
                 console.log('Character Added')
                 res.redirect('/') // Redirect user to main page
-                'burger'
             })
             .catch(err => console.error(err))
 })
+
 
 app.delete('/deleteCharacater', (req, res) => {
     db.collection('characters').deleteOne({charFName: req.body.charFNameS})
@@ -62,3 +72,5 @@ app.delete('/deleteCharacater', (req, res) => {
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Connect to port ${PORT}`)
 })
+
+
