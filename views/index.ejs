@@ -11,13 +11,13 @@
     <h1>All Characters</h1>
     <ul class="characters">
     <% for(let i=0; i < info.length; i++) {%>
-            <li class="character">
-                        <span><%= info[i].charFName %></span>
-                        <span><%= info[i].charLName %>, </span>
-                        <span>Class: <%= info[i].class %></span>
-                        <button class="deleteButton">Delete Character</button>
-                        <span></span>
-            </li>
+                <li class="character">
+                            <span><%= info[i].charFName %></span>
+                            <span><%= info[i].charLName %>, </span>
+                            <span><%= info[i].class %></span>
+                            <button class='statsBtn'>Show Stats</button>
+                            <button class="deleteButton">Delete Character</button>
+                </li>
     <% } %>
     </ul>
     <h2>Add A Character:</h2>
