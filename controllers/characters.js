@@ -1,6 +1,5 @@
-const { TopologyDescription } = require('mongodb')
 const Character = require('../models/Character')
-const checkClass = require('../public/js/checkClass');
+const addStats = require('../public/js/addStats');
 const classStats = require('../public/js/stats');
 
 module.exports = {
@@ -17,7 +16,7 @@ module.exports = {
             await Character.create({firstName: req.body.firstName,
                                     lastName: req.body.lastName, 
                                     characterClass: req.body.class, 
-                                    stats: checkClass.checkClassAndMatch(req.body.class, stats)})
+                                    stats: addStats.addStats(req.body.class, stats)})
             console.log('Character Created')
             res.redirect('/characters')
         } catch (err) {
