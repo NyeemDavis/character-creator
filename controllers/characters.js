@@ -1,0 +1,37 @@
+const { TopologyDescription } = require('mongodb')
+const Character = require('../models/Character')
+const checkClass = require('../public/js/checkClass');
+const classStats = require('../public/js/stats');
+
+module.exports = {
+    getCharacters: async (req, res) => {
+        try {
+            const characterItems = await Character.find()
+            res.render('characters.ejs', {characters: characterItems})
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    createCharacter: async (req, res) => {
+        try {
+            await Character.create({firstName: req.body.firstName,
+                                    lastName: req.body.lastName, 
+                                    characterClass: req.body.class, 
+                                    stats: checkClass.checkClassAndMatch(req.body.class, stats)})
+            console.log('Character Created')
+            res.redirect('/characters')
+        } catch (err) {
+            console.log(err)
+        }
+    },
+    deleteCharacter: async (req, res) => {
+        console.log(req.body.fName, req.body.lName)
+        try {
+            await Character.findOneAndDelete({firstName: req.body.fName, lastName: req.body.lName})
+            console.log('Character Deleted')
+            res.json('Deleted Character')
+        } catch (err) {
+            console.log(err)
+        }
+    }
+}

@@ -1,55 +1,30 @@
-const deleteButton = document.querySelectorAll('.deleteButton')
-const statsButton = document.querySelectorAll('.statsBtn')
-Array.from(deleteButton).forEach((element)=>{
-  element.addEventListener('click', deleteCharacater)
+const deleteBtn = document.querySelectorAll('.deleteBtn')
+
+Array.from(deleteBtn).forEach((el)=>{
+  el.addEventListener('click', deleteCharacater)
 })
 
-Array.from(statsButton).forEach((element)=>{
-  element.addEventListener('click', getStats)
-})
 
-deleteButton.addEventListener('click', deleteCharacater)
-statsButton.addEventListener('click', getStats)
-// statsButton.addEventListener('click', addStats)
+
+deleteBtn.addEventListener('click', deleteCharacater)
 
 async function deleteCharacater(){
     const fName = this.parentNode.childNodes[1].innerText
     const lName = this.parentNode.childNodes[3].innerText
-    console.log(fName, lName)
     try{
-        const response = await fetch('deleteCharacater', {
+        const response = await fetch('characters/deleteCharacter', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-              'charFNameS': fName,
-              'charLNameS': lName
+              'fName': fName,
+              'lName': lName
             })
           })
         const data = await response.json()
         console.log(data)
         location.reload()
-
     }catch(err){
         console.log(err)
     }
 }
 
-async function getStats() {
-  const fName = this.parentNode.childNodes[1].innerText
-  const lName = this.parentNode.childNodes[3].innerText
-  const charCLass = this.parentNode.childNodes[5].innerText
-  try {
-    const response = await fetch('stats', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-  
-      })
-    })
-    const data = await response.json()
-    console.log(data)
-    location.reload()
-  } catch (error) {
-    console.log(error)
-  }
-}
