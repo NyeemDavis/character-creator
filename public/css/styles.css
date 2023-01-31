@@ -28,7 +28,6 @@ body {
     width: 35%;
     background-color: white;
     border-radius: 15px;
-    height: 20vh;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -66,4 +65,13 @@ form {
 
 .character-span {
     display: inline-block;
+}
+
+.characterClass {
+    border: solid 2px black;
+    padding: 10px;
+}
+
+.characterClass:hover {
+    background-color: green;
 }

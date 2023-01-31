@@ -1,12 +1,22 @@
 const deleteBtn = document.querySelectorAll('.deleteBtn')
+const configBtn = document.querySelectorAll('.configBtn')
+const charClass = document.querySelectorAll('.characterClass')
+
+
+Array.from(charClass).forEach((el) => {
+  el.addEventListener('click', () => {
+    const input = document.querySelector('.classInput')
+    input.value = el.innerText
+  })
+})
 
 Array.from(deleteBtn).forEach((el)=>{
   el.addEventListener('click', deleteCharacater)
 })
 
-
-
-deleteBtn.addEventListener('click', deleteCharacater)
+Array.from(configBtn).forEach((el) => {
+  el.addEventListener('click', getConfig)
+})
 
 async function deleteCharacater(){
     const fName = this.parentNode.childNodes[3].innerText
@@ -27,4 +37,5 @@ async function deleteCharacater(){
         console.log(err)
     }
 }
+
 

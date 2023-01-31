@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>All Characters</h1>
+    <h1 class="main">All Characters</h1>
     <div class="all-characters">
         <ul class="characters">
         <% for(let i=0; i < characters.length; i++) {%>
@@ -20,6 +20,9 @@
                                     <h3>Class</h3>
                                     <span class="character-span"><%= characters[i].characterClass %></span>
                                     <button class="deleteBtn">Delete Character</button>
+                                  <form onsubmit="getConig()">  
+                                    <button class="configBtn">Configure</button>
+                                  </form>
                         </li>
                   </div>
         <% } %>
@@ -32,18 +35,21 @@
             <form class="characterForm" action="/characters/createCharacter" method="POST">
                 <input type="text" placeholder="First Name" name="firstName">
                 <input type="text" placeholder="Last Name" name="lastName">
-                <select name="class" id="classes">
-                    <option value='Warrior'>Warrior</option>
-                    <option value="Archer">Archer</option>
-                    <option value="Balanced">Balanced</option>
-                    <option value="Mage">Mage</option>
-                    <option value="Assassin">Assassin</option>
-                    <option value="Healer">Healer</option>
-                </select>
+                <input type="text" readonly class="classInput"placeholder="Selected Class" name="class">
                 <input class='submit' type="submit">
             </form>
         </div>
  </div>
+    <h2>Classes</h2>
+    <div class="classes">
+        <button class="characterClass">Warrior</button>
+        <button class="characterClass">Archer</button>
+        <button class="characterClass">Balanced</button>
+        <button class="characterClass">Mage</button>
+        <button class="characterClass">Assassin</button>
+        <button class="characterClass">Healer</button>
+    </div>
+    <h2>Wepon of Choice</h2>
     <script src='js/main.js'></script>
 </body>
 </html>

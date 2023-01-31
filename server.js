@@ -3,6 +3,7 @@ const app = express();
 const connectDB = require('./config/database')
 const homeRoutes = require('./routes/home')
 const characterRoutes = require('./routes/characters')
+const configRoutes = require('./routes/config')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use('/', homeRoutes)
 app.use('/characters', characterRoutes)
+app.use('/config', configRoutes)
 
 app.listen(process.env.PORT, () => {
     console.log(`Connected to port ${process.env.PORT}, Server is running`)
