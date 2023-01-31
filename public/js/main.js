@@ -9,8 +9,8 @@ Array.from(deleteBtn).forEach((el)=>{
 deleteBtn.addEventListener('click', deleteCharacater)
 
 async function deleteCharacater(){
-    const fName = this.parentNode.childNodes[1].innerText
-    const lName = this.parentNode.childNodes[3].innerText
+    const fName = this.parentNode.childNodes[3].innerText
+    const lName = this.parentNode.childNodes[5].innerText
     try{
         const response = await fetch('characters/deleteCharacter', {
             method: 'delete',

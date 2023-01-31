@@ -34,3 +34,18 @@ body {
 form {
     display: inline-block;
 }
+
+
+
+.addCharacter-div {
+    display: flex;
+}
+
+.character {
+    display: flex;
+    flex-direction: column;
+}
+
+.character-span {
+    display: inline-block;
+}

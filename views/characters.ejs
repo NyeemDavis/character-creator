@@ -11,12 +11,16 @@
     <h1>All Characters</h1>
     <ul class="characters">
     <% for(let i=0; i < characters.length; i++) {%>
-                <li class="character">
-                            <span><%= characters[i].firstName %></span>
-                            <span><%= characters[i].lastName %></span>
-                            <span><%= characters[i].characterClass %></span>
-                            <button class="deleteBtn">Delete Character</button>
-                </li>
+              <div class="character-div">
+                    <li class="character">
+                                <h3>Name</h3>
+                                <span class="character-span"><%= characters[i].firstName %></span>
+                                <span class="character-span"><%= characters[i].lastName %></span>
+                                <h3>Class</h3>
+                                <span class="character-span"><%= characters[i].characterClass %></span>
+                                <button class="deleteBtn">Delete Character</button>
+                    </li>
+              </div>
     <% } %>
     </ul>
     <h2>Add A Character:</h2>
