@@ -28,9 +28,7 @@ body {
     width: 35%;
     background-color: white;
     border-radius: 15px;
-    display: flex;
-    justify-content: center;
-    align-content: center;
+
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 

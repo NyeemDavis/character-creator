@@ -26,7 +26,7 @@ module.exports = {
     deleteCharacter: async (req, res) => {
         console.log(req.body.fName, req.body.lName)
         try {
-            await Character.findOneAndDelete({firstName: req.body.fName, lastName: req.body.lName})
+            await Character.deleteOne({firstName: req.body.fName, lastName: req.body.lName, characterClass: req.body.class})
             console.log('Character Deleted')
             res.json('Deleted Character')
         } catch (err) {

@@ -14,20 +14,19 @@ Array.from(deleteBtn).forEach((el)=>{
   el.addEventListener('click', deleteCharacater)
 })
 
-Array.from(configBtn).forEach((el) => {
-  el.addEventListener('click', getConfig)
-})
 
 async function deleteCharacater(){
     const fName = this.parentNode.childNodes[3].innerText
     const lName = this.parentNode.childNodes[5].innerText
+    const charClass = this.parentNode.childNodes[9].innerText
     try{
         const response = await fetch('characters/deleteCharacter', {
             method: 'delete',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               'fName': fName,
-              'lName': lName
+              'lName': lName,
+              'class': charClass
             })
           })
         const data = await response.json()

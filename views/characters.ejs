@@ -8,27 +8,8 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1 class="main">All Characters</h1>
-    <div class="all-characters">
-        <ul class="characters">
-        <% for(let i=0; i < characters.length; i++) {%>
-                  <div class="character-div">
-                        <li class="character">
-                                    <h3>Name</h3>
-                                    <span class="character-span"><%= characters[i].firstName %></span>
-                                    <span class="character-span"><%= characters[i].lastName %></span>
-                                    <h3>Class</h3>
-                                    <span class="character-span"><%= characters[i].characterClass %></span>
-                                    <button class="deleteBtn">Delete Character</button>
-                                  <form onsubmit="getConig()">  
-                                    <button class="configBtn">Configure</button>
-                                  </form>
-                        </li>
-                  </div>
-        <% } %>
-        </ul>
-    </div>
-    <h2>Add A Character:</h2>
+    
+ <h1>Add A Character:</h1>
 
  <div class="addCharacter-div">
         <div class="form-div">
@@ -39,17 +20,39 @@
                 <input class='submit' type="submit">
             </form>
         </div>
- </div>
-    <h2>Classes</h2>
-    <div class="classes">
-        <button class="characterClass">Warrior</button>
-        <button class="characterClass">Archer</button>
-        <button class="characterClass">Balanced</button>
-        <button class="characterClass">Mage</button>
-        <button class="characterClass">Assassin</button>
-        <button class="characterClass">Healer</button>
+
+        <h2>Classes</h2>
+        <div class="classes">
+            <button class="characterClass">Warrior</button>
+            <button class="characterClass">Archer</button>
+            <button class="characterClass">Balanced</button>
+            <button class="characterClass">Mage</button>
+            <button class="characterClass">Assassin</button>
+            <button class="characterClass">Healer</button>
+        </div>
+        <h2>Weapon of Choice</h2>
     </div>
-    <h2>Wepon of Choice</h2>
+
+    <h1 class="main">All Characters</h1>
+    <div class="all-characters">
+        <ul class="characters">
+        <% for(let i=0; i < characters.length; i++) {%>
+                <div class="character-div">
+                        <li class="character">
+                                    <h3>Name</h3>
+                                    <span class="character-span"><%= characters[i].firstName %></span>
+                                    <span class="character-span"><%= characters[i].lastName %></span>
+                                    <h3>Class</h3>
+                                    <span class="character-span"><%= characters[i].characterClass %></span>
+                                    <button class="deleteBtn">Delete Character</button>
+                                    <form onsubmit="getConig()">  
+                                    <button class="configBtn">Configure</button>
+                                    </form>
+                        </li>
+                </div>
+        <% } %>
+        </ul>
+    </div>
     <script src='js/main.js'></script>
 </body>
 </html>
