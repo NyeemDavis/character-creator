@@ -9,20 +9,22 @@
 </head>
 <body>
     <h1>All Characters</h1>
-    <ul class="characters">
-    <% for(let i=0; i < characters.length; i++) {%>
-              <div class="character-div">
-                    <li class="character">
-                                <h3>Name</h3>
-                                <span class="character-span"><%= characters[i].firstName %></span>
-                                <span class="character-span"><%= characters[i].lastName %></span>
-                                <h3>Class</h3>
-                                <span class="character-span"><%= characters[i].characterClass %></span>
-                                <button class="deleteBtn">Delete Character</button>
-                    </li>
-              </div>
-    <% } %>
-    </ul>
+    <div class="all-characters">
+        <ul class="characters">
+        <% for(let i=0; i < characters.length; i++) {%>
+                  <div class="character-div">
+                        <li class="character">
+                                    <h3>Name</h3>
+                                    <span class="character-span"><%= characters[i].firstName %></span>
+                                    <span class="character-span"><%= characters[i].lastName %></span>
+                                    <h3>Class</h3>
+                                    <span class="character-span"><%= characters[i].characterClass %></span>
+                                    <button class="deleteBtn">Delete Character</button>
+                        </li>
+                  </div>
+        <% } %>
+        </ul>
+    </div>
     <h2>Add A Character:</h2>
 
  <div class="addCharacter-div">
