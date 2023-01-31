@@ -13,7 +13,8 @@ module.exports = {
     },
     createCharacter: async (req, res) => {
         try {
-            await Character.create({firstName: req.body.firstName,
+            await Character.create({
+                                    firstName: req.body.firstName,
                                     lastName: req.body.lastName, 
                                     characterClass: req.body.class, 
                                     stats: addStats.addStats(req.body.class, stats)})
@@ -26,7 +27,11 @@ module.exports = {
     deleteCharacter: async (req, res) => {
         console.log(req.body.fName, req.body.lName)
         try {
-            await Character.deleteOne({firstName: req.body.fName, lastName: req.body.lName, characterClass: req.body.class})
+            await Character.deleteOne({
+                                       firstName: req.body.fName,
+                                       lastName: req.body.lName, 
+                                       characterClass: req.body.class
+                                    })
             console.log('Character Deleted')
             res.json('Deleted Character')
         } catch (err) {

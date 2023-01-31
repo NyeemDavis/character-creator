@@ -28,7 +28,8 @@ body {
     width: 35%;
     background-color: white;
     border-radius: 15px;
-
+    padding: 25px;
+    text-align: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
@@ -40,13 +41,9 @@ body {
     text-align: center;
 }
 
-
 form {
     display: inline-block;
 }
-
-
-
 
 .character-div {
     background-color: white;
@@ -65,11 +62,24 @@ form {
     display: inline-block;
 }
 
+.weapon {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
 .characterClass {
-    border: solid 2px black;
+    border: none;
+}
+
+.characterClass, .weapon{
+    border-radius: 5px;
     padding: 10px;
 }
 
-.characterClass:hover {
+.characterClass:hover, .weapon:hover {
     background-color: green;
 }
+
+
+
+

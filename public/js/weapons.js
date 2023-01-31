@@ -25,7 +25,7 @@ module.exports =
             crystal_wand: {
                 damage: 100
             },
-            wooden_staff: {
+            wooden_wand: {
                 damage: 100
             }
         }
