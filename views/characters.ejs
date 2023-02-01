@@ -11,12 +11,13 @@
     
  <h1>Add A Character:</h1>
 
- <div class="addCharacter-div">
+ <div class="characterDiv">
         <div class="form-div">
             <form class="characterForm" action="/characters/createCharacter" method="POST">
                 <input type="text" placeholder="First Name" name="firstName">
                 <input type="text" placeholder="Last Name" name="lastName">
-                <input type="text" readonly class="classInput"placeholder="Selected Class" name="class">
+                <input type="text" readonly class="classInput"  placeholder="Selected Class" name="class">
+                <input type="text" readonly class="weaponInput" placeholder="Selected Weapon" name="weapon">
                 <input class='submit' type="submit">
             </form>
         </div>
@@ -31,7 +32,7 @@
             <button class="characterClass">Healer</button>
         </div>
         <h2>Weapon of Choice</h2>
-        
+
         <div class="weapons">
             <h3 class="weapon_category">Swords</h3>
                 <ul class="weapon_list swords">
@@ -41,7 +42,7 @@
 
             <h3 class="weapon_category">Swords</h3>
                 <ul class="weapon_list daggers">
-                    <li class="short_dagger weapon">Short dagger</li>
+                    <li class="short_dagger weapon">Short Dagger</li>
                  </ul>
             <h3 class="weapon_category">Bows</h3>
                 <ul class="weapon_list bows">
@@ -61,16 +62,11 @@
         <ul class="characters">
         <% for(let i=0; i < characters.length; i++) {%>
                 <div class="character-div">
-                        <li class="character">
-                                    <h3>Name</h3>
+                        <li class="character"  data-id='<%=characters[i]._id%>'>
                                     <span class="character-span"><%= characters[i].firstName %></span>
-                                    <span class="character-span"><%= characters[i].lastName %></span>
-                                    <h3>Class</h3>
-                                    <span class="character-span"><%= characters[i].characterClass %></span>
+                                    <span class="character-span"><%= characters[i].lastName %> </span>
                                     <button class="deleteBtn">Delete Character</button>
-                                    <form onsubmit="getConig()">  
                                     <button class="configBtn">Configure</button>
-                                    </form>
                         </li>
                 </div>
         <% } %>

@@ -16,6 +16,10 @@ const CharacterSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    weapon: {
+        type: Object,
+        required: true
+    },
     stats: {
         type: Object,
         required: true

@@ -1,33 +1,32 @@
-module.exports =  
-    Weapons = {
-        Swords: {
-        long_sword: {
+module.exports =  {weapons: weapons = {
+        'Long Sword': {
+            name: 'Long Sword',
             damage: 100
         },
-        short_sword: {
+        'Short Sword': {
+            name: 'Short Sword',
             damage: 100
-        }   
+        } ,
+        'Short Dagger': {
+             name: 'Short Dagger',
+            damage: 100
         },
-        Daggers: {
-            short_dagger: {
-                damage: 100
-            }
+        'Long Bow': {
+             name: 'Long Bow',
+             damage: 100
         },
-        Bows: {
-            long_bow: {
-                damage: 100
-            },
-            compact_bow: {
-                damge: 100
-            }
+        'Compact Bow': {
+             name: 'Compact Bow',
+            damge: 100
         },
-        Wands: {
-            crystal_wand: {
-                damage: 100
-            },
-            wooden_wand: {
-                damage: 100
-            }
-        }
+        'Crystal Wand': {
+             name: 'Crystal Wand',
+            damage: 100
+        },
+        'Wooden Wand': {
+             name: 'Wooden Wand',
+            damage: 100
+        },    
+    }
 }
 

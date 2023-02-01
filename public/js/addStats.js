@@ -2,7 +2,7 @@
 module.exports.addStats = function (charClass, obj) {
   for(key in obj) {
     if(charClass == key) {
-      console.log(`${charClass} class matches with ${key} stats`)
+      console.log(`Added stats for ${charClass} class`)
       return obj[key]
     }
   }
