@@ -23,25 +23,26 @@ Array.from(deleteBtn).forEach((el)=>{
 })
 
 Array.from(configBtn).forEach((el) => {
-  el.addEventListener('click', async () => {
-    const characterId = this.parentNode.dataset.id
-    try {
-      const response = await fetch('config', {
-        method: 'get',
-        header: {'Content-Type': 'application/json'},
-        body: JSON.stringify({
-          'characterFromJSFile': characterId
-        })
-      })
-      const data = await response.json()
-      console.log(data)
-      location.reload()
-    } catch (err) {
-      console.log(err)
-    }
-  })
-})
+  el.addEventListener('click', getStats)})
 
+
+async function getStats () {
+  const characterId = this.parentNode.dataset.id
+  try {
+    const response = await fetch('characters/config', {
+      method: 'put',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        characterIdFromJs: characterId
+      })
+    })
+    const data = await response.json()
+    console.log(data)
+    location.reload() 
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 async function deleteCharacater(){
     const characterId = this.parentNode.dataset.id

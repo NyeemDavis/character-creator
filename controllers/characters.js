@@ -35,5 +35,15 @@ module.exports = {
         } catch (err) {
             console.log(err)
         }
+    },
+    showStats: async (req, res) => {
+        console.log('Receieved request')
+        try {
+            const character = await Character.find()
+            console.log(req.body)
+        } catch (err) {
+            console.log('Failed')
+            console.log(err)
+        }
     }
 }

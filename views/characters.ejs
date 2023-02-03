@@ -62,13 +62,16 @@
         <ul class="characters">
         <% for(let i=0; i < characters.length; i++) {%>
                 <div class="character-div">
-                        <li class="character"  data-id='<%=characters[i]._id%>'>
-                                    <span class="character-span"><%= characters[i].firstName %></span>
-                                    <span class="character-span"><%= characters[i].lastName %> </span>
-                                    <button class="deleteBtn">Delete Character</button>
-                                    <button class="configBtn">Configure</button>
-                        </li>
+                       <form action="/characters/config" method="put">
+                            <li class="character" data-id='<%=characters[i]._id%>'>
+                                        <span class="character-span"><%= characters[i].firstName %></span>
+                                        <span class="character-span"><%= characters[i].lastName %> </span>
+                                        <button class="deleteBtn">Delete Character</button>
+                                        <button type='submit 'class="configBtn">Configure</button>
+                            </li>
+                       </form>
                 </div>
+                
         <% } %>
         </ul>
     </div>
