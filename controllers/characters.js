@@ -20,7 +20,8 @@ module.exports = {
                                     lastName: req.body.lastName, 
                                     characterClass: req.body.class,
                                     weapon: addWeapon.addWeapon(req.body.weapon, weapons),
-                                    stats: addStats.addStats(req.body.class, stats)})
+                                    stats: addStats.addStats(req.body.class, stats),
+                                    userId: _id})
             console.log('Character Created')
             res.redirect('/characters')
         } catch (err) {
@@ -39,8 +40,7 @@ module.exports = {
     showStats: async (req, res) => {
         console.log('Receieved request')
         try {
-            const character = Character.find({_id:req.query})
-            console.log(character)
+            const characterId = Object.entries(req.query)[0][0]
         } catch (err) {
             console.log('Failed', err)
         }

@@ -7,7 +7,7 @@ router.get('/', characterController.getCharacters)
 
 router.post('/createCharacter', characterController.createCharacter)
 
-router.get('/config', characterController.showStats)
+router.get('/config:characterId', characterController.showStats)
 
 router.delete('/deleteCharacter', characterController.deleteCharacter)
 

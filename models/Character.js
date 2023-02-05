@@ -23,6 +23,10 @@ const CharacterSchema = new mongoose.Schema({
     stats: {
         type: Object,
         required: true
+    },
+    userId: {
+        type: String,
+        required: true
     }
 })
 
