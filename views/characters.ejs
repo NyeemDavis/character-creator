@@ -51,8 +51,8 @@
                 </ul>
             <h3 class="weapon_category">Magic Wands</h3>
                 <ul class="weapon_list magic_wands">
-                    <li class="crystal_wand weapon">Crystal Wand</li>
-                    <li class="wooden_wand weapon">Wooden Wand</li>
+                    <li class="crystal_wand weapon">Crystal Staff</li>
+                    <li class="wooden_wand weapon">Wooden Staff</li>
                 </ul>
         </div>
     </div>
@@ -62,16 +62,13 @@
         <ul class="characters">
         <% for(let i=0; i < characters.length; i++) {%>
                 <div class="character-div">
-                       <form action="/characters/config" method="put">
                             <li class="character" data-id='<%=characters[i]._id%>'>
                                         <span class="character-span"><%= characters[i].firstName %></span>
                                         <span class="character-span"><%= characters[i].lastName %> </span>
                                         <button class="deleteBtn">Delete Character</button>
                                         <button type='submit 'class="configBtn">Configure</button>
                             </li>
-                       </form>
                 </div>
-                
         <% } %>
         </ul>
     </div>
