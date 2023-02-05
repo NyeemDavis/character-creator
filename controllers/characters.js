@@ -39,11 +39,10 @@ module.exports = {
     showStats: async (req, res) => {
         console.log('Receieved request')
         try {
-            const character = await Character.find()
-            console.log(req.body)
+            const character = Character.find({_id:req.query})
+            console.log(character)
         } catch (err) {
-            console.log('Failed')
-            console.log(err)
+            console.log('Failed', err)
         }
     }
 }
