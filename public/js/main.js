@@ -1,5 +1,5 @@
 const deleteBtn = document.querySelectorAll('.deleteBtn')
-const configBtn = document.querySelectorAll('.configBtn')
+const configBtn = document.querySelectorAll('.configure')
 const charClass = document.querySelectorAll('.characterClass')
 const weapons = document.querySelectorAll(".weapon")
 
@@ -22,6 +22,39 @@ Array.from(deleteBtn).forEach((el)=>{
   el.addEventListener('click', deleteCharacater)
 })
 
+
+Array.from(configBtn).forEach((el) => {
+  el.addEventListener('click', async () => {
+    const characterId = el.parentNode.dataset.id
+    if(el.parentNode.dataset.status == 'unchecked') {
+      el.parentNode.dataset.status = 'checked'
+      try {
+        const response = await fetch('characters/config', {
+          method: 'post',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            "characterFromJSFile": characterId
+          })
+        })
+        const data = await response.json()
+
+        const characterText = document.querySelector('.characterInfoDiv')
+
+        stats =  Object.values(data.character.stats)
+        console.log(stats)
+       for(i = 0; i < stats.length; i ++) {
+        characterText.innerHTML += `<span class='fortnite'>${stats[i]}</span>`
+       }
+      } catch (err) {
+        console.log(err)
+      }
+    }else if(el.parentNode.dataset.status == 'checked') {
+      console.log('deez fat ass nigger nuts')
+    }
+  })
+})
+
+
 async function deleteCharacater(){
   const characterId = this.parentNode.dataset.id
   try{
@@ -39,23 +72,3 @@ async function deleteCharacater(){
       console.log(err)
   }
 }
-
-
-const getStats = async function () {
-  const characterId = this.parentNode.dataset.id
-  const response = 
-  await fetch(`/characters/config?${new URLSearchParams(characterId).toString()}`)
-    .then(res => res.json())
-    .then(configHTML => {
-      
-      location.reload()
-    })
-    .catch(err => {
-      console.log(err)
-    })
-}
-
-Array.from(configBtn).forEach((el) => {
-  el.addEventListener('click', getStats)})
-
-

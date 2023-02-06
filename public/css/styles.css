@@ -80,6 +80,9 @@ form {
     background-color: green;
 }
 
-
+.characterInfoDiv {
+    display: flex;
+    flex-direction: column;
+}
 
 

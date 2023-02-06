@@ -62,12 +62,15 @@
         <ul class="characters">
         <% for(let i=0; i < characters.length; i++) {%>
                 <div class="character-div">
-                            <li class="character" data-id='<%=characters[i]._id%>'>
+                            <li class="character" data-id='<%=characters[i]._id%>'  data-status='unchecked'>
                                         <span class="character-span"><%= characters[i].firstName %></span>
                                         <span class="character-span"><%= characters[i].lastName %> </span>
-                                        <button class="deleteBtn">Delete Character</button>
-                                        <button type='submit 'class="configBtn">Configure</button>
+                                        <button class="configure">Config</button>
+                                        <button class="deleteBtn">Delete Character</button>     
                             </li>
+                </div>
+                <div class="characterInfoDiv">
+                    
                 </div>
         <% } %>
         </ul>
