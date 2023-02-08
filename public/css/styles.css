@@ -82,7 +82,8 @@ form {
 
 .characterInfoDiv {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    height: 20px;
 }
 
 

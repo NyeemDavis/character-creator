@@ -40,10 +40,9 @@ module.exports = {
         console.log('Receieved request')
         try {
           const character = await Character.findOne({_id: req.body.characterFromJSFile})
-          console.log(character)
           res.json({character})
         } catch (err) {
-            console.log('Failed', err)
+            console.log(err)
         }
     }
 }
