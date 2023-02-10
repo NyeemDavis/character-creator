@@ -57,14 +57,15 @@ async function showAndHideStats() {
     this.parentNode.dataset.status = 'checked'
     const [health, defense, damage, magic] = Object.values(await getStats(characterId))
     console.log(health, defense, damage, magic)
-    // for(i = 0; i < stats.length; i++) {
-    //   characterText.innerHTML += 
-    //   `
-    //   <button class='configStatBtn' data-type='plus'>+</button>
-    //   <span class='characterStat'>${stats[i]}</span>
-    //   <button class='configStatBtn'  data-type='minus'>-</button>
-    //   `
-    // }
+    characterText.innerHTML += 
+    `
+    <div class='characterStats'>
+      <span>Health: ${health}<span>
+      <span>Defense: ${defense}<span>
+      <span>Damage: ${damage}<span>
+      <span>Magic: ${magic}<span>
+    </div>
+    `
   }else if( this.parentNode.dataset.status == 'checked') {
     this.parentNode.dataset.status = 'unchecked'
     characterText.innerHTML = ''
