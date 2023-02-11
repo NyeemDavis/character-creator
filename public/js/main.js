@@ -53,18 +53,19 @@ async function getStats(id) {
 async function showAndHideStats() {
   const characterId = this.parentNode.dataset.id
   const characterText = this.parentNode.parentNode.nextSibling.nextSibling
+  console.log(characterText)
   if(this.parentNode.dataset.status == 'unchecked') {
     this.parentNode.dataset.status = 'checked'
     const [health, defense, damage, magic] = Object.values(await getStats(characterId))
     console.log(health, defense, damage, magic)
     characterText.innerHTML += 
     `
-    <div class='characterStats'>
-      <span>Health: ${health}<span>
-      <span>Defense: ${defense}<span>
-      <span>Damage: ${damage}<span>
-      <span>Magic: ${magic}<span>
-    </div>
+      <ul>
+        <li>Health: ${health}</li>
+        <li>Defense: ${defense}</li> 
+        <li>Damage: ${damage}</li> 
+        <li>Magic: ${magic}</li>  
+      </ul>
     `
   }else if( this.parentNode.dataset.status == 'checked') {
     this.parentNode.dataset.status = 'unchecked'
